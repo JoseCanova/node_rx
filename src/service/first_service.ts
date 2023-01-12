@@ -53,11 +53,9 @@ export async function baseRequestService(memoryMap:IdentityMap<any>){
 									  user: 'postgres',
 									  password: '123',
 									});
-								console.log('called pgfunc');
 								client.connect();
 									client.query('SELECT NOW()', (err:any, res:any) => {
 											  if (err) throw err
-											  console.log(res.rows);
 											  const store = asyncLocalStorage.getStore();
 											  store?.base.set('result' , res);
 											  client.end()

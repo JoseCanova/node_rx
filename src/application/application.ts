@@ -4,16 +4,13 @@ import { METHODS } from 'http';
 export const bodyParser = require('body-parser')
 export const express = require('express')
 export const Router = require('express/lib/router/index')
-export const async = require('async')
 const { Client , Result
  } = require('pg')
 
 
 export const app = express();
 export const router = Router();
-export const as = async;
 
-var parse = require('pg-connection-string').parse;
 
  
 const client = new Client({
@@ -40,7 +37,6 @@ export class Application extends Identity<any> {
 		this.proxy.all('/', this.handleRequest());
 		this.pathMap = new Map<String , Function> ();
 		this.prepare();
-		this.async=as;
 		this.proxy.listen(3000);
 	}
 	
@@ -48,7 +44,6 @@ export class Application extends Identity<any> {
 		this.pathMap.set('/hello' , baseRequestService);
 		this.proxy.use(bodyParser.json());
 		this.proxy.all('/*',  this.handleRequest(baseRequestService));
-		const mt = new MethodHandler<any>();
 		debugger;		
 	}
 	
@@ -78,7 +73,7 @@ export class Application extends Identity<any> {
 export type key = string | number | symbol;
 
 //todo : implemens filter method.
-class MethodHandler<T extends any> extends Map<key , Function>implements IdentityNewType<any,any>{
+class MethodHandler extends Map<key , Function>implements IdentityNewType<any,any>{
 	
 	constructor(){
 		super();

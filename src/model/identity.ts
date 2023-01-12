@@ -109,7 +109,6 @@ export class FunctionalIdentity extends Function implements  IdentityNewType<ID<
 	}
 	
 	apply(this: Function, thisArg: any, argArray?: any) {
-		console.log('apply');
     	return thisArg;
 	}
 	
