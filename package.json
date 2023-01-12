@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "@types/pg": "^8.6.6",
+    "@types/stompit": "^0.26.3",
+    "pg": "^8.8.0",
+    "stompit": "^1.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@types/async": "^3.2.16",
+    "@types/express": "^4.17.15",
+    "@types/node": "^18.11.18",
+    "@types/qs": "^6.9.7",
+    "async": "^3.2.4",
+    "express": "^4.18.2",
+    "ndb": "^1.1.5",
+    "rx-debugger": "^7.1.0",
+    "rxjs": "^7.8.0"
+  }
+}
