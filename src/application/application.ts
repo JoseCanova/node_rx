@@ -15,7 +15,6 @@ export const as = async;
 
 var parse = require('pg-connection-string').parse;
 
-var config = parse('postgres://postgres:123@localhost:5432/postgres');
  
 const client = new Client({
   host: 'localhost',
@@ -78,6 +77,7 @@ export class Application extends Identity<any> {
 
 export type key = string | number | symbol;
 
+//todo : implemens filter method.
 class MethodHandler<T extends any> extends Map<key , Function>implements IdentityNewType<any,any>{
 	
 	constructor(){

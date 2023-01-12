@@ -1,5 +1,3 @@
-import { get } from "https";
-
 export interface  ID<T extends ID<T>>{
 }
 
@@ -100,7 +98,6 @@ extends Identity<(x:keyof T)=>{key:keyof T , value:T[keyof T]}>
 		return this.base.get(k);
 	}
 }
-
 
 export class FunctionalIdentity extends Function implements  IdentityNewType<ID<any>,ID<any>>{
 
