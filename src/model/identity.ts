@@ -77,6 +77,7 @@ export class Identity<T extends ID<T>> extends IdentityHandlerType<T> {
 	}
 }
 
+//TODO: fix base access.
 export class IdentityMap<T extends any> 
 extends Identity<(x:keyof T)=>{key:keyof T , value:T[keyof T]}>
 {
@@ -87,6 +88,7 @@ extends Identity<(x:keyof T)=>{key:keyof T , value:T[keyof T]}>
 		for(const index in k){
 			this.base.set(index, k[index]);
 		}
+		Object.seal(this.base);
 		return this;
 	}
 	

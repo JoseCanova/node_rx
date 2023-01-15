@@ -11,7 +11,6 @@ const { Client , Result
 export const app = express();
 export const router = Router();
 
-
  
 const client = new Client({
   host: 'localhost',
@@ -41,7 +40,7 @@ export class Application extends Identity<any> {
 	}
 	
 	prepare(){
-		this.pathMap.set('/hello' , baseRequestService);
+		this.pathMap.set('/echo' , baseRequestService);
 		this.proxy.use(bodyParser.json());
 		this.proxy.all('/*',  this.handleRequest(baseRequestService));
 		debugger;		
