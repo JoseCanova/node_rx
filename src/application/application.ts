@@ -1,5 +1,7 @@
 import {IdentityMap , Identity , IdentityNewType  , ID , FunctionalIdentity , asFunctionalInterface } from '../model/identity'
 import { baseRequestService } from '../service/first_service';
+import { baseRequestNeoAsyncService } from '../service/first_neo_service';
+
 import { METHODS } from 'http';
 export const bodyParser = require('body-parser')
 export const express = require('express')
@@ -42,7 +44,8 @@ export class Application extends Identity<any> {
 	prepare(){
 		this.pathMap.set('/echo' , baseRequestService);
 		this.proxy.use(bodyParser.json());
-		this.proxy.all('/*',  this.handleRequest(baseRequestService));
+		this.proxy.all('/async*',  this.handleRequest(baseRequestService));
+		this.proxy.all('/neo-async*',  this.handleRequest(baseRequestNeoAsyncService));
 		debugger;		
 	}
 	
